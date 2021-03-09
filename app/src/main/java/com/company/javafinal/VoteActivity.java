@@ -64,7 +64,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                evaluateUserAnswer(1);
+                //evaluateUserAnswer(1);
                 changeQuestionOnButtonClick();
 
             }
@@ -74,7 +74,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                evaluateUserAnswer(2);
+                //evaluateUserAnswer(2);
                 changeQuestionOnButtonClick();
 
             }
@@ -84,7 +84,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                evaluateUserAnswer(3);
+                //evaluateUserAnswer(3);
                 changeQuestionOnButtonClick();
 
             }
@@ -94,7 +94,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                evaluateUserAnswer(4);
+               // evaluateUserAnswer(4);
                 changeQuestionOnButtonClick();
 
             }
@@ -105,12 +105,12 @@ public class VoteActivity extends AppCompatActivity {
     private void changeQuestionOnButtonClick(){
         mQuestionIndex=(mQuestionIndex+1)%4;
         if(mQuestionIndex==0){
-            Set<String> set = new HashSet<String>();
+            /*Set<String> set = new HashSet<String>();
             set.addAll(listOfVotes);
             SharedPreferences sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
             SharedPreferences.Editor editor = sharedPref.edit();
             editor.putStringSet("set", set);
-            editor.apply();
+            editor.apply();*/
             Intent intent = new Intent(VoteActivity.this, ResultActivity.class);
             startActivity(intent);
             finish();
@@ -128,7 +128,8 @@ public class VoteActivity extends AppCompatActivity {
         btn3.setText(option3);
         btn4.setText(option4);
     }
-    private void evaluateUserAnswer(int userGuess){
+
+    /*private void evaluateUserAnswer(int userGuess){
         String currentAnswer = null;
         if(userGuess==1){
             currentAnswer = questionCollection[mQuestionIndex].getOptionOne();
@@ -143,6 +144,6 @@ public class VoteActivity extends AppCompatActivity {
             currentAnswer = questionCollection[mQuestionIndex].getOptionFour();
         }
         listOfVotes.add(currentAnswer);
-    }
+    }*/
 
 }
