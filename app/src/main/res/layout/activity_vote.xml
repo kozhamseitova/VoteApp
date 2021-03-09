@@ -18,90 +18,100 @@
         android:textStyle="bold"
         tools:ignore="MissingConstraints" />
 
-
-    <TextView
-        android:id="@+id/tv_question"
-        android:layout_width="match_parent"
+    <LinearLayout
+        android:id="@+id/sec"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="10dp"
-        android:gravity="center"
-        android:textStyle="bold"
-        android:textColor="#FFFFFF"
-        android:textSize="22sp"
-        tools:text="Question?"
+        android:orientation="vertical"
+        android:visibility="visible"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/questionheader"
-        tools:ignore="MissingConstraints" />
-
-
-    <LinearLayout
-        android:id="@+id/first_part_of_answers"
-        android:layout_width="360dp"
-        android:layout_height="150dp"
-        android:orientation="horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tv_question"
         tools:ignore="MissingConstraints">
 
         <TextView
-            android:id="@+id/tv_option_one"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:background="@drawable/default_option_border_bg"
+            android:id="@+id/tv_question"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
             android:gravity="center"
-            android:padding="13dp"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            tools:text="One" />
+            android:textSize="22sp"
+            android:textStyle="bold"
+            tools:ignore="MissingConstraints"
+            tools:text="Question?" />
 
-        <TextView
-            android:id="@+id/tv_option_two"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:background="@drawable/default_option_border_bg"
-            android:gravity="center"
-            android:padding="13dp"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            tools:text="Two" />
+
+        <LinearLayout
+            android:id="@+id/first_part_of_answers"
+            android:layout_width="360dp"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_question"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tv_option_one"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:gravity="center"
+                android:padding="13dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                tools:text="One" />
+
+            <TextView
+                android:id="@+id/tv_option_two"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:gravity="center"
+                android:padding="13dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                tools:text="Two" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/second_part_of_answers"
+            android:layout_width="360dp"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/first_part_of_answers"
+            tools:ignore="MissingConstraints">
+
+            <TextView
+                android:id="@+id/tv_option_three"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:gravity="center"
+                android:padding="13dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                tools:text="Three" />
+
+            <TextView
+                android:id="@+id/tv_option_four"
+                android:layout_width="150dp"
+                android:layout_height="match_parent"
+                android:layout_margin="15dp"
+                android:background="@drawable/default_option_border_bg"
+                android:gravity="center"
+                android:padding="13dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp"
+                tools:text="Four" />
+        </LinearLayout>
     </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/second_part_of_answers"
-        app:layout_constraintTop_toBottomOf="@id/first_part_of_answers"
-        android:layout_width="360dp"
-        android:layout_height="150dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:orientation="horizontal"
-        tools:ignore="MissingConstraints">
-        <TextView
-            android:id="@+id/tv_option_three"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:background="@drawable/default_option_border_bg"
-            android:gravity="center"
-            android:padding="13dp"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            tools:text="Three" />
-
-        <TextView
-            android:id="@+id/tv_option_four"
-            android:layout_width="150dp"
-            android:layout_height="match_parent"
-            android:layout_margin="15dp"
-            android:gravity="center"
-            android:background="@drawable/default_option_border_bg"
-            android:padding="13dp"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            tools:text="Four" />
-    </LinearLayout>
-
     <LinearLayout
         android:layout_width="130dp"
         android:layout_height="130dp"
@@ -109,10 +119,11 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.185"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/second_part_of_answers"
+        app:layout_constraintTop_toBottomOf="@id/sec"
         tools:ignore="MissingConstraints">
 
         <ImageButton
+            android:id="@+id/forward"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:layout_margin="10dp"

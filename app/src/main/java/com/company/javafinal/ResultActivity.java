@@ -14,38 +14,24 @@ import java.util.Set;
 
 public class ResultActivity extends AppCompatActivity {
 
-    /*private TextView textView;
+    private TextView textView;
     private TextView textView1;
     private TextView textView2;
-    private TextView textView3;*/
+    private TextView textView3;
     private Button button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_result);
-        /*textView = findViewById(R.id.main);
+        textView = findViewById(R.id.main);
         textView1 = findViewById(R.id.main1);
         textView2 = findViewById(R.id.main2);
-        textView3 = findViewById(R.id.main3);*/
+        textView3 = findViewById(R.id.main3);
 
-
-        /*SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
-        Set<String> set = sharedPreferences.getStringSet("set", null);
-        for (String se : set){
-            if(textView.getText().toString().isEmpty()){
-                textView.setText(se.toString());
-            }
-            else if(textView1.getText().toString().isEmpty()){
-                textView.setText(se.toString());
-            }
-            else if(textView2.getText().toString().isEmpty()){
-                textView.setText(se.toString());
-            }
-            else if(textView3.getText().toString().isEmpty()){
-                textView.setText(se.toString());
-            }
-        }*/
+        SharedPreferences sharedPreferences = getSharedPreferences("myKey", MODE_PRIVATE);
+        String set = sharedPreferences.getString("currentAnswer", "");
+        textView.setText(set);
 
 
         button = findViewById(R.id.btn);

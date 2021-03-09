@@ -6,10 +6,16 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -17,6 +23,7 @@ import java.util.Set;
 public class VoteActivity extends AppCompatActivity {
 
     private TextView mTxtQuestion;
+    private TextView questionHeader;
     private TextView btn1;
     private TextView btn2;
     private TextView btn3;
@@ -27,13 +34,15 @@ public class VoteActivity extends AppCompatActivity {
     private String option2;
     private String option3;
     private String option4;
-    private List<String> listOfVotes;
+    private ImageButton forward;
+    private LinearLayout sec;
+    private List<String> s = new ArrayList<>();
 
     private Questions[] questionCollection = new Questions[]{
             new Questions(1, "Yes or No?", "Yes", "No", "IDK", "MB"),
-            new Questions(2, "Yes or No?", "Yes", "No", "IDK", "MB"),
-            new Questions(3, "Yes or No?", "Yes", "No", "IDK", "MB"),
-            new Questions(4, "Yes or No?", "Yes", "No", "IDK", "MB")
+            new Questions(2, "White or Black?", "White", "Black", "IDK", "DM"),
+            new Questions(3, "Morning or Evening?", "Morning", "Evening", "IDK", "DM"),
+            new Questions(4, "Smartphone or Laptop?", "Smartphone", "Laptop", "IDK", "DM")
     };
 
     @Override
@@ -41,7 +50,10 @@ public class VoteActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_vote);
 
+        sec = findViewById(R.id.sec);
         mTxtQuestion = findViewById(R.id.tv_question);
+        questionHeader = findViewById(R.id.questionheader);
+        forward = findViewById(R.id.forward);
         btn1 = findViewById(R.id.tv_option_one);
         btn2 = findViewById(R.id.tv_option_two);
         btn3 = findViewById(R.id.tv_option_three);
@@ -64,7 +76,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //evaluateUserAnswer(1);
+                s.add(evaluateUserAnswer(1));
                 changeQuestionOnButtonClick();
 
             }
@@ -74,7 +86,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //evaluateUserAnswer(2);
+                s.add(evaluateUserAnswer(2));
                 changeQuestionOnButtonClick();
 
             }
@@ -84,7 +96,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                //evaluateUserAnswer(3);
+                s.add(evaluateUserAnswer(3));
                 changeQuestionOnButtonClick();
 
             }
@@ -94,7 +106,7 @@ public class VoteActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-               // evaluateUserAnswer(4);
+                s.add(evaluateUserAnswer(4));
                 changeQuestionOnButtonClick();
 
             }
@@ -105,15 +117,21 @@ public class VoteActivity extends AppCompatActivity {
     private void changeQuestionOnButtonClick(){
         mQuestionIndex=(mQuestionIndex+1)%4;
         if(mQuestionIndex==0){
-            /*Set<String> set = new HashSet<String>();
-            set.addAll(listOfVotes);
-            SharedPreferences sharedPref = getSharedPreferences("myKey", MODE_PRIVATE);
-            SharedPreferences.Editor editor = sharedPref.edit();
-            editor.putStringSet("set", set);
-            editor.apply();*/
-            Intent intent = new Intent(VoteActivity.this, ResultActivity.class);
-            startActivity(intent);
-            finish();
+            for(int i = 0; i < s.size(); i++){
+                System.out.println(s.get(i));
+            }
+            questionHeader.setText("Your answers:\n"+s.get(0)+"\n"+s.get(1)+"\n"+s.get(2)+"\n"+s.get(3));
+            sec.setVisibility(View.GONE);
+
+            forward.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    startActivity(new Intent(VoteActivity.this, MainActivity.class));
+                    finish();
+
+                }
+            });
         }
 
         mQuizQuestion = questionCollection[mQuestionIndex].getQuestion();
@@ -129,7 +147,7 @@ public class VoteActivity extends AppCompatActivity {
         btn4.setText(option4);
     }
 
-    /*private void evaluateUserAnswer(int userGuess){
+    private String evaluateUserAnswer(int userGuess){
         String currentAnswer = null;
         if(userGuess==1){
             currentAnswer = questionCollection[mQuestionIndex].getOptionOne();
@@ -143,7 +161,7 @@ public class VoteActivity extends AppCompatActivity {
         else if(userGuess==4){
             currentAnswer = questionCollection[mQuestionIndex].getOptionFour();
         }
-        listOfVotes.add(currentAnswer);
-    }*/
+        return currentAnswer;
+    }
 
 }
