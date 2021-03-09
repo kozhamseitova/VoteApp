@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/ic_bg1"
+    tools:context=".VoteActivity">
+
+    <TextView
+        android:id="@+id/questionheader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Question"
+        android:textColor="@color/white"
+        android:textSize="54sp"
+        android:textStyle="bold"
+        tools:ignore="MissingConstraints" />
+
+
+    <TextView
+        android:id="@+id/tv_question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="#FFFFFF"
+        android:textSize="22sp"
+        tools:text="Question?"
+        app:layout_constraintTop_toBottomOf="@id/questionheader"
+        tools:ignore="MissingConstraints" />
+
+
+    <LinearLayout
+        android:id="@+id/first_part_of_answers"
+        android:layout_width="360dp"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tv_question"
+        tools:ignore="MissingConstraints">
+
+        <TextView
+            android:id="@+id/tv_option_one"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="13dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:text="One" />
+
+        <TextView
+            android:id="@+id/tv_option_two"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="13dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:text="Two" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/second_part_of_answers"
+        app:layout_constraintTop_toBottomOf="@id/first_part_of_answers"
+        android:layout_width="360dp"
+        android:layout_height="150dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:orientation="horizontal"
+        tools:ignore="MissingConstraints">
+        <TextView
+            android:id="@+id/tv_option_three"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:background="@drawable/default_option_border_bg"
+            android:gravity="center"
+            android:padding="13dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:text="Three" />
+
+        <TextView
+            android:id="@+id/tv_option_four"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
+            android:layout_margin="15dp"
+            android:gravity="center"
+            android:background="@drawable/default_option_border_bg"
+            android:padding="13dp"
+            android:textColor="#FFFFFF"
+            android:textSize="18sp"
+            tools:text="Four" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="130dp"
+        android:layout_height="130dp"
+        android:background="@drawable/default_option_border_bg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.185"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/second_part_of_answers"
+        tools:ignore="MissingConstraints">
+
+        <ImageButton
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:layout_margin="10dp"
+            android:background="#00FFFFFF"
+            android:src="@drawable/ic_arrow_forward_bold"
+
+            tools:ignore="MissingConstraints" />
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
